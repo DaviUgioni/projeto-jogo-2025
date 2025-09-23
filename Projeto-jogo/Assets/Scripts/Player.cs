@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     public float speed;
 
-    public float jumpforce;
+    public float jumpforce = 10f;
     private bool isground;
 
 
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isground == true)
         {
             rig.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
             anim.SetInteger("transition1", 2);
