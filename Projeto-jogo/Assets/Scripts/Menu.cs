@@ -3,21 +3,40 @@ using System.Collections.Concurrent;
 using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
 
 
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
     }
+
+    public void GoMenu()
+    {
+        SceneManager.LoadScene(0);
+
+    }
+    public void ActiveConfig(GameObject go)
+    {
+        go.SetActive(true);
+    }
+
+    public void DisableConfig(GameObject go) 
+    {
+        go.SetActive(false);
+    }
+
+    public void ActivePause(GameObject go)
+    {
+        Time.timeScale = 0;
+        go.SetActive(true); 
+    }
+
+    public void DisablePause(GameObject go)
+    {
+        Time.timeScale = 1;
+        go.SetActive(false);
+    }
+
 }
